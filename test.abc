@@ -1,0 +1,7 @@
+﻿$ISOPath = 'C:\Users\Nisha.Kumari1\Downloads\SERVER_EVAL_x64FRE_en-us.iso'   # update this
+New-VM -Name DC1 -MemoryStartupBytes 4GB -Generation 2 `
+  -NewVHDPath "C:\Hyper-V\DC1\DC1.vhdx" -NewVHDSizeBytes 60GB -SwitchName "LabSwitch"
+Set-VMProcessor -VMName DC1 -Count 2
+Set-VMMemory -VMName DC1 -DynamicMemoryEnabled $false
+Add-VMDvdDrive -VMName DC1 -Path $ISOPath
+Start-zzvbcbbn -Name DC1
